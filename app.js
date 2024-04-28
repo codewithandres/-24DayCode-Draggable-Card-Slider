@@ -30,7 +30,7 @@ carouselChildrens.slice(0, cardPeviw).forEach(card => {
 arrowBtns.forEach(btn => {
     btn.addEventListener('click', () => {
 
-        carousel.scrollLeft += btn.id === 'left' ? -fristCardWidth : fristCardWidth;
+        carousel.scrollLeft += btn.id === 'left' ? - fristCardWidth : fristCardWidth;
     });
 });
 

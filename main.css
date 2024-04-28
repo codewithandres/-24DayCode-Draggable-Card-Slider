@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Revolution&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
     --font-family: "Raleway", sans-serif;
@@ -12,13 +12,22 @@
 
 body {
     font-family: var(--font-family);
-    background: linear-gradient(135deg, #2c3e50, #4b6cb7);
+    background: linear-gradient(135deg, #03011a, #000000);
     min-height: 100vh;
     padding: 0 30px;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+h1 {
+    font-family: "Protest Revolution", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 5rem;
 }
 
 .card .img img {
@@ -89,7 +98,7 @@ body {
 }
 
 .card h2 {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.56rem;
     margin: 30px 0 5px;
 }
@@ -146,10 +155,26 @@ body {
     .wrapper .carousel {
         grid-auto-columns: calc((100% / 2) - 9px);
     }
+
+    h1 {
+        font-size: 1.9em;
+    }
 }
 
 @media screen and (max-width: 520px) {
     .wrapper .carousel {
         grid-auto-columns: calc((100% / 1) - 9px);
     }
+
+    h1 {
+        font-size: 1.7em;
+    }
+}
+
+footer {
+    width: 100%;
+    color: hsla(0, 0%, 100%, 0.582);
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2em;
 }
