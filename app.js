@@ -1,11 +1,18 @@
-
-const carousel = document.querySelector('.carousel');
+const wrapper = document.querySelector('.wrapper');
+const carousel = document.querySelector('.carousel')
 const arrowBtns = document.querySelectorAll('.wrapper i');
 const fristCardWidth = carousel.querySelector('.card').offsetWidth;
 const carouselChildrens = [...carousel.children];
 
-let isDragin = false, startX, stratScrollLeft;
+let isDragin = false, startX, stratScrollLeft, timeoundId;
 
+const autoPlay = () => {
+    if (window.innerWidth < 800) return;//return if windowns is smaller than 800
+    // AutoPlay the aftter every 2500 ms
+    timeoundId = setTimeout(() => carousel.scrollLeft += fristCardWidth, 1000)
+};
+
+autoPlay();
 // get the of cards that in the carousel at once
 let cardPeviw = Math.random(carousel.offsetWidth / fristCardWidth);
 // inser copies of the last few cards to beginning of carousel infinite scrolling
@@ -62,13 +69,18 @@ const infiniteScroll = () => {
         carousel.classList.remove('no-trasition');
 
     };
+
+    //  claer existing timeount & satart  autoPlay if mouse is not hovering over carousel
+    clearTimeout(timeoundId);
+    if (!wrapper.matches(':hover')) autoPlay();
 };
 
 carousel.addEventListener('mousemove', draggin);
 carousel.addEventListener('mousedown', dragStart);
 document.addEventListener('mouseup', dragStop);
 carousel.addEventListener('scroll', infiniteScroll);
-
+wrapper.addEventListener('mouseenter', () => clearTimeout(timeoundId));
+wrapper.addEventListener('mouseleave', autoPlay)
 
 // const body = document.body;
 // const scrollWrap = document.querySelector(".smooth-scroll-wrapper");
